@@ -4,8 +4,13 @@ import requests
 cr7_url = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
 page = requests.get(cr7_url)
 
-print(page.content)
+soup = BeautifulSoup(page.text, "html.parser")
+# print(soup.prettify())
 
+# die Tabelle mit den gewünschten Daten
+table = soup.find('table',{'class':'infobox toccolours float-right toptextcells'})
+# print(table)
 
-soup = BeautifulSoup(page.content, "html.parser")
-print (soup)
+data = table.findAll('tr')
+print(data)
+
