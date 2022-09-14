@@ -22,8 +22,8 @@ to ensure better readability.
 How does Web scraping work with BeatifulSoup in Python?
 (knowledge taken from https://www.youtube.com/watch?v=XVv6mJpFOb0&ab_channel=freeCodeCamp.org)
 
-<a> tag defines a hyperlink, which is used to link from one page to another.
-<tr> tag defines a row in an HTML table. A <tr> element contains one or more <th> or <td> elements.
+a tag defines a hyperlink, which is used to link from one page to another.
+tr tag defines a row in an HTML table. A tr element contains one or more th or td elements
 
 To benefit from the advantage of Beatiful Soup to ensure better readability you import the library,
 store the html content in a variable, then give it the content and prettify that. 
