@@ -37,3 +37,9 @@ page = requests.get(content)
 soup = BeautifulSoup(page.text, "html.parser")
 soup.prettify()
 
+----------
+
+you can find specific tags with the .find() method, just put a string into the brickets what you are looking for.
+to get every tag that you are searching for use the .find_all method.
+With iterating over the variable of the find_all method, you can access everything wihtout the tags and scrape for 
+something.
