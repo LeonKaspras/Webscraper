@@ -3,8 +3,8 @@ import bs4
 import requests
 
 
-cr7_url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
-page: requests.Response = requests.get(cr7_url)
+url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
+page: requests.Response = requests.get(url)
 
 soup: bs4.BeautifulSoup = BeautifulSoup(page.text, "html.parser")
 soup.prettify()
