@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import bs4
 import requests
+from datetime import datetime
 
 
 url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
@@ -41,10 +42,7 @@ for data in data_td_tags:
     if data.text.find("Größe") == 0:
         # sucht das gewünschte Element heraus
         element: bs4.element.Tag = soup.find(text="Größe").findNext('td').contents[0]
-        height = element
-        height_in_cm = element
-        height_in_cm = height.replace(" cm","")
-        height_in_cm = float(height_in_cm)
+        height_in_cm: float = float(element.replace(" cm",""))
         person.update({"Größe":height_in_cm})
 
     if data.text.find("Position") == 0:
