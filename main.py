@@ -10,6 +10,7 @@ soup: bs4.BeautifulSoup = BeautifulSoup(page.text, "html.parser")
 soup.prettify()
 
 
+
 # die Tabelle mit den gewünschten Daten
 table: bs4.element.Tag = soup.find('table',{'class':'infobox toccolours float-right toptextcells'})
 
@@ -23,13 +24,14 @@ for data in data_td_tags:
     if data.text.find("Voller Name") == 0:
         # sucht das gewünschte Element heraus
         element: bs4.element.Tag = soup.find(text="Voller Name").findNext('td').contents[0]
-        person.update({"Voller Name":element})
+        name = str(element)
+        name = name.replace("\n","")
+        person.update({"Voller Name":name})
 
     if data.text.find("Geburtstag") == 0:
         # sucht das gewünschte Element heraus
         element: bs4.element.Tag = soup.find(text="Geburtstag").findNext('td').contents[0]
-        #print(a.next_element)
-        person.update({"Geburtstag":element.next_element})
+        person.update({"Geburtstag":element.next_element+" "+element.findNext('a').text})
 
     if data.text.find("Geburtsort") == 0:
         # sucht das gewünschte Element heraus
@@ -39,8 +41,11 @@ for data in data_td_tags:
     if data.text.find("Größe") == 0:
         # sucht das gewünschte Element heraus
         element: bs4.element.Tag = soup.find(text="Größe").findNext('td').contents[0]
-        #print(element)
-        person.update({"Größe":element})
+        height = element
+        height_in_cm = element
+        height_in_cm = height.replace(" cm","")
+        height_in_cm = float(height_in_cm)
+        person.update({"Größe":height_in_cm})
 
     if data.text.find("Position") == 0:
         # sucht das gewünschte Element heraus
@@ -49,9 +54,10 @@ for data in data_td_tags:
 
 
 
-print(person)
+#print(person)
 
-
+for value in person.values():
+    print(type(value))
 
 
 
