@@ -3,8 +3,9 @@ import bs4
 import requests
 from datetime import datetime
 
-
-url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
+print("Please enter the url of a footballplayer: ")
+url:str = input()
+#url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
 page: requests.Response = requests.get(url)
 
 soup: bs4.BeautifulSoup = BeautifulSoup(page.text, "html.parser")
@@ -52,10 +53,8 @@ for data in data_td_tags:
 
 
 
-#print(person)
+print(person)
 
-for value in person.values():
-    print(type(value))
 
 
 
