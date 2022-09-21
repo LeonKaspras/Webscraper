@@ -8,10 +8,10 @@ locale.setlocale(locale.LC_TIME, "de_DE") # german
 
 
 
-#print("Please enter the url of a footballplayer: ")
-#url:str = input()
+print("Please enter the url of a footballplayer: ")
+url:str = input()
 
-url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
+# url: str = "https://de.wikipedia.org/wiki/Cristiano_Ronaldo"
 page: requests.Response = requests.get(url)
 
 soup: bs4.BeautifulSoup = BeautifulSoup(page.text, "html.parser")
